@@ -1,0 +1,19 @@
+{
+  "name": "e-cart",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "keywords": [
+    "Node.js",
+    "shopping",
+    "cart"
+  ],
+  "dependencies": {
+    "body-parser": "^1.15.2",
+    "bootstrap": "^3.3.7",
+    "express": "^4.14.0",
+    "handlebars": "^4.0.5",
+    "http": "0.0.0",
+    "jsonfile": "^2.3.1"
+  }
+}
