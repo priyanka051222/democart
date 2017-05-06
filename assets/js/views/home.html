@@ -1,0 +1,74 @@
+<h2 class="title-heading">
+    New Arrivals</h2>
+<div class="container">
+    <section class="row productList">
+        <div ng-repeat="product in productList" class="col-lg-3 col-md-3 col-sm-6 col-xs-12 product-block">
+            <div class="product-item">
+                <img class="product-image" ng-src="{{product.p_path}}" />
+                <div class="detail">
+                    <h2 class="product-name">{{product.p_name}}</h2>
+                    <p class="product-style">{{product.p_variation}} </span>
+                    </p>
+                    <button data-pid={{product.p_id}} id="buyProduct" ng-click="viewLightBox()" class="btn-cart info lightBox">Buy</button>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
+<div id="modalWindow-template" ng-if="modalWindowProduct">
+    <div id="contentBox" class=" col-xs-12">
+        <div class="row header-modal">
+            <div class="col-lg-12">
+                <a href="javascript:void(0)"><span class="pull-right" ng-click="toggleCloseBtn()">X</a></span>
+            </div>
+        </div>
+        <div class="row">
+            <div class="product-image col-sm-12 col-xs-12">
+                <img ng-src="{{modalWindowProduct.p_path}}" />
+            </div>
+            <div class="modalWindow-detail col-sm-12 col-xs-12">
+                <h2 class="modalWindow-product-name ">{{modalWindowProduct.p_name}}</h2>
+                <div class="modalWindow-product-price "><span class="currency">$</span> <span class="price">{{modalWindowProduct.p_price}}</span></div>
+                <div class="modalWindow-colors-available  ">
+                    <h6>Available Colors</h6>
+                    <div class="color-wrapper text-center ">
+                        <div class="color-group checkboxFive " ng-repeat="colors in modalWindowProduct.p_available_options.colors">
+                            <div ng-click="setColor(colors)" ng-class="{'color-selected' : modalWindowProduct.selectedColor == colors.name , 'color-unselected' : modalWindowProduct.selectedColor != colors.name}" id="colorbox{{colors.name}}" style="background-color: {{colors.hexcode}};height:20px;width:20px; " />
+                        </div>
+                    </div>
+                </div>
+                <div class="modalWindow-size">
+
+                    <select class="size col-sm-12 col-xs-12" ng-change="getSize(modalWindowProduct.selectedSize)" ng-options="o.code as o.name for o in modalWindowProduct.p_available_options.sizes" ng-model="modalWindowProduct.selectedSize">
+						 <option value="">Select Size</option>
+					 </select>
+
+          <select class="qty col-sm-12 col-xs-12 " ng-model="modalWindowProduct.qty">
+						 <option value="">Select Quantity</option>
+						 <option value="1">1</option>
+						 <option value="2">2</option>
+						 <option value="3">3</option>
+						 <option value="4">4</option>
+						 <option value="5">5</option>
+						 <option value="6">6</option>
+						 <option value="7">7</option>
+						 <option value="8">8</option>
+						 <option value="9">9</option>
+					 </select>
+                </div>
+                <div class="modalWindow_style text-center  ">Style - <span>{{modalWindowProduct.p_style}}</span></div>
+                <div class="modalWindow-addToBag-wrapper ">
+                    <button class="btn-cart modalWindow-addToBag" ng-click="addToBag(modalWindowProduct)">Add to Bag</button>
+                </div>
+                <div class="modalWindow-product-details-link-wrapper">
+                    <a class="modalWindow-details-link" href="javascript:void(0)">See product details</a>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+    <div id="shadeBox"></div>
+</div>
+</div>

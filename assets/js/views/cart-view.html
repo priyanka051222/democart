@@ -1,0 +1,166 @@
+<div id="cart-template">
+    <div class="data-container" ng-if="productList.length == 0">
+        <h1 class="primary-heading text-center"> No Item(s) in your cart </h1>
+    </div>
+    <div class="data-container" ng-if="productList.length > 0">
+
+        <section class="product-grid col-lg-12">
+            <h1 class="primary-heading"> YOUR SHOPPING BAG <span class="pull-right visible-sm-inline visible-xs-inline">{{productList.length}} ITEMS</span> </h1>
+            <aside class=" cart-heading visible-lg visible-md">
+                <div class="col-lg-6 col-md-6"><span>{{productList.length}}</span> ITEMS</div>
+                <div class="col-lg-2 col-md-2 text-right">SIZE</div>
+                <div class="col-lg-2 col-md-2 text-right">QTY</div>
+                <div class="col-lg-2 col-md-2 text-right">PRICE</div>
+            </aside>
+
+            <aside class="cart-row row" ng-repeat="data in productList" data-productId="{{data.p_id}}">
+
+                <div class="col-lg-2 col-md-2 col-sm-3 col-xs-5 product-image">
+                    <img ng-src="{{data.p_path}}" alt="" />
+                </div>
+                <div class="product-details col-lg-10 col-md-10 col-sm-9 col-xs-7">
+                    <div class="row">
+                        <div class="col-lg-5 col-md-5 col-sm-12 col-xs-12">
+                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                <div class="product-name">{{data.p_name}}</div>
+                                <div class="product-style">Style #: <span class="style-val">{{data.p_style}}</span></div>
+                                <div class="product-color">Selected Color #:<span class="color-name">{{data.p_selected_color.name}}</span></div>
+                            </div>
+                        </div>
+                        <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 text-right-lg">
+                            <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 cart-size"><span class="visible-sm-inline visible-xs-inline">Size:&nbsp;</span><span class="size-name">{{data.p_selected_size.code}}</span></div>
+                            <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 cart-qty"><span class="visible-sm-inline visible-xs-inline">QTY:&nbsp;</span><input type="text" name="qty" value="{{data.p_quantity}}" ng-blur="onChangeQuantity($event)" /> </div>
+                            <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 cart-price"><span class="currency">$</span> <span class="price">{{data.p_price.toFixed(2)}}</span></div>
+                        </div>
+                    </div>
+                    <div class="">
+                        <div class="quick-links col-lg-6 col-md-6 visible-lg visible-md">
+                            <a ng-click="viewLightBox()" class="lightBox">Edit</a>
+                            <a ng-click="removeProduct()"> X Remove</a>
+                            <a> Save For Later</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="quick-links col-sm-12 col-xs-12 visible-xs visible-sm text-center">
+                    <a ng-click="viewLightBox()" class="lightBox">Edit</a>
+                    <a ng-click="removeProduct()"> X Remove</a>
+                    <a> Save For Later</a>
+                </div>
+
+
+            </aside>
+
+        </section>
+        <section class="billing-section">
+
+            <div class="row">
+                <div class="col-lg-2 col-md-2 hidden-xs hidden-sm">
+                    <h3 class="help">Need help or have questions?</h3>
+                    <p>Call Customer Service at 1-800-555-5555</p>
+                    <p><a href="#">Chat with one of our sttylists</a></p>
+                    <p><a href="#">See return &amp; exchange policy</a></p>
+                </div>
+                <div class="col-lg-10 col-md-10 col-sm-12 col-xs-12 pull-right checkout-section">
+                    <div class="promo-code-wrapper col-xs-12 no-padding">
+                        <div class="col-xs-6 promo-msg">Enter Promotion Code or Gift Card</div>
+                        <div class="col-xs-6 text-right no-padding-right">
+                            <input type="text" name="promo-code" class="promo-code" value="" />
+                            <button class="apply-btn" ng-click="getPromo()">APPLY</button>
+                        </div>
+                    </div>
+                    <div class="sub-total spacer">
+                        <div class="col-xs-6 secondary-heading">SubTotal</div>
+                        <div class="col-xs-6 text-right"><sup>$</sup><span class="price">{{subTotal}}</span></div>
+                    </div>
+
+                    <div class="promoCode-applied spacer" ng-if="promotionCode.length > 0">
+                        <div class="col-xs-6 secondary-heading">Promotion Code <strong>{{promotionCode}}</strong> Applied</div>
+                        <div class="col-xs-6 text-right"><span class="add-delete">-</span><sup>$</sup><span class="price">{{discountRecieved}}</span></div>
+                    </div>
+
+                    <div class="estimated-shipping-wrapper spacer">
+                        <div class="col-xs-6 secondary-heading">
+                            <div class="estimated-shipping">ESTIMATED SHIPPING* </div>
+                            <div class="msg">You qualify for free shipping because your order is over %50*</div>
+                        </div>
+                        <div class="col-xs-6 text-right">FREE</div>
+                    </div>
+                    <div class="estimated-total-wrapper spacer">
+                        <div class="col-xs-6 secondary-heading">
+                            <div class="estimated-total">ESTIMATED Total* </div>
+                            <div class="msg">Tax will be applied during checkout</div>
+                        </div>
+                        <div class="col-xs-6 text-right totalPrice"><sup>$</sup><span>{{estiTotal}}</span></div>
+                    </div>
+                    <div class="checkout-btn  spacer">
+                        <button class="btn-cart checkout-button">CHECKOUT</button>
+                        <div class="secondary-heading continue-shopping ">Continue Shopping </div>
+                    </div>
+                    <div class="checkout-btn  spacer">
+                        <div class="checkout-button">Secure Checkout. Shopping is safe &amp; secure.</div>
+                        <div class="secondary-heading continue-shopping lock-image"><img src="./assets/images/lock.jpg"></img>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+</div>
+<!-- Lightbox template -->
+
+<div id="modalWindow-template" ng-if="modalWindowProduct">
+    <div id="contentBox" class=" col-xs-12">
+        <div class="row header-modal">
+            <div class="col-lg-12">
+                <a href="javascript:void(0)"><span class="pull-right" ng-click="toggleCloseBtn()">X</a></span>
+            </div>
+        </div>
+        <div class="row">
+            <div class="product-image col-sm-12 col-xs-12">
+                <img ng-src="{{modalWindowProduct.p_path}}" />
+            </div>
+            <div class="modalWindow-detail col-sm-12 col-xs-12">
+                <h2 class="modalWindow-product-name ">{{modalWindowProduct.p_name}}</h2>
+                <div class="modalWindow-product-price "><span class="currency">$</span> <span class="price">{{modalWindowProduct.p_price}}</span></div>
+                <div class="modalWindow-colors-available  ">
+                    <h6>Available Colors</h6>
+                    <div class="color-wrapper text-center ">
+                        <div class="color-group checkboxFive " ng-repeat="colors in modalWindowProduct.p_available_options.colors">
+                            <div ng-class="{'color-selected' : modalWindowProduct.selectedColor == colors.name , 'color-unselected' : modalWindowProduct.selectedColor != colors.name}" id="colorbox{{colors.name}}" style="background-color: {{colors.hexcode}};height:20px;width:20px; " />
+                        </div>
+                    </div>
+                </div>
+                <div class="modalWindow-size">
+
+                    <select class="size col-sm-12 col-xs-12" ng-change="getSize(modalWindowProduct.selectedSize)" ng-options="o.code as o.name for o in modalWindowProduct.p_available_options.sizes" ng-model="modalWindowProduct.selectedSize" disabled="disabled">
+						 <option value="">Select Size</option>
+					 </select>
+
+            <select class="qty col-sm-12 col-xs-12 " ng-model="modalWindowProduct.qty">
+						 <option value="">Select Quantity</option>
+						 <option value="1">1</option>
+						 <option value="2">2</option>
+						 <option value="3">3</option>
+						 <option value="4">4</option>
+						 <option value="5">5</option>
+						 <option value="6">6</option>
+						 <option value="7">7</option>
+						 <option value="8">8</option>
+						 <option value="9">9</option>
+					 </select>
+                </div>
+                <div class="modalWindow_style text-center  ">Style - <span>{{modalWindowProduct.p_style}}</span></div>
+                <div class="modalWindow-addToBag-wrapper ">
+                    <button class="btn-cart modalWindow-addToBag" ng-click="updatedQty(modalWindowProduct)">Edit</button>
+                </div>
+                <div class="modalWindow-product-details-link-wrapper">
+                    <a class="modalWindow-details-link" href="javascript:void(0)">See product details</a>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+    <div id="shadeBox"></div>
+</div>
+</div>

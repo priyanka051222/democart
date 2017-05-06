@@ -1,0 +1,637 @@
+/*
+html5doctor.com Reset Stylesheet
+v1.6.1
+Last Updated: 2010-09-17
+Author: Richard Clark - http://richclarkdesign.com
+Twitter: @rich_clark
+*/
+
+html, body, div, span, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+abbr, address, cite, code,
+del, dfn, em, img, ins, kbd, q, samp,
+small, strong, sub, sup, var,
+b, i,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section, summary,
+time, mark, audio, video {
+    margin:0;
+    padding:0;
+    border:0;
+    outline:0;
+    font-size:100%;
+    vertical-align:baseline;
+    background:transparent;
+}
+
+body {
+    line-height:1;
+}
+
+article,aside,details,figcaption,figure,
+footer,header,hgroup,menu,nav,section {
+    display:block;
+}
+
+nav ul {
+    list-style:none;
+}
+.navbar-header, .nav-links{
+  padding: 5px 0;
+}
+.navbar-header .navbar-brand{
+  color: orange;
+font-weight: bold;
+font-size: 24px;
+font-family: fantasy;
+}
+blockquote, q {
+    quotes:none;
+}
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+    content:'';
+    content:none;
+}
+
+a {
+    margin:0;
+    padding:0;
+    font-size:100%;
+    vertical-align:baseline;
+    background:transparent;
+}
+
+/* change colours to suit your needs */
+ins {
+    background-color:#ff9;
+    color:#000;
+    text-decoration:none;
+}
+
+/* change colours to suit your needs */
+mark {
+    background-color:#ff9;
+    color:#000;
+    font-style:italic;
+    font-weight:bold;
+}
+
+del {
+    text-decoration: line-through;
+}
+
+abbr[title], dfn[title] {
+    border-bottom:1px dotted;
+    cursor:help;
+}
+
+table {
+    border-collapse:collapse;
+    border-spacing:0;
+}
+
+/* change border colour to suit your needs */
+hr {
+    display:block;
+    height:1px;
+    border:0;
+    border-top:1px solid #cccccc;
+    margin:1em 0;
+    padding:0;
+}
+
+input, select {
+    vertical-align:middle;
+}
+
+.no-padding{
+	padding: 0;
+}
+.no-padding-left{
+	padding-left: 0;
+}
+.no-padding-right{
+	padding-right: 0;
+}
+.button{
+	width: auto;
+	height: auto;
+	border: none;
+}
+
+/* Custom Code*/
+body{
+	background: #f9f9f9 repeat top left;
+}
+button{
+  text-transform: uppercase;
+}
+.navbar{
+	z-index: 1;
+}
+.nav .navbar-form{
+  margin: 15px 0px;
+}
+.main-container{
+	width: 96%;
+	margin: 0 auto;
+	float: inherit;
+	overflow: hidden;
+}
+
+.title-heading{
+  font-size: 32px;
+  color: #999;
+  margin-bottom: 20px;
+  text-align: center;
+	font-family: 'Arial', serif;
+}
+
+.product-item{
+  text-align: center;
+  padding: 20px;
+}
+.product-item .product-image{
+  width: 150px;
+  height: 200px;
+  margin-bottom: 10px;
+}
+ .product-image img{
+  height: 150px;
+  width: 130px;
+}
+.cart-icon{
+	position: relative;
+}
+.cart-icon a{
+	padding: 0 !important;
+}
+.cart-count{
+	position: absolute;
+    top: 6px;
+    right: 5px;
+    color: #fff;
+    background: #71acd6;
+    border-radius: 11px;
+    padding: 5px 7px;
+}
+.cart-icon .primary-cartIcon{
+	outline: none;
+	background: none;
+	border: none;
+    margin-top: 6px;
+}
+.cart-icon .glyphicon{
+	font-size: 2em;
+}
+.cart-icon .btn-default:hover{
+	background: none;
+}
+.cart-heading{
+	border-bottom: 8px solid #dedede;
+	padding: 1em 0 2em;
+}
+
+.cart-row{
+	margin: 1em 0 1.5em;
+	padding-bottom: 1em;
+	border-bottom: 1px solid #dedede;
+}
+
+.cart-row:last-child{
+	border-bottom: 10px solid #dedede;
+}
+
+.cart-qty input{
+	width: 40px;
+    text-align: center;
+	font-size: .9em;
+}
+
+
+.cart-price .currency{
+  position: relative;
+    top: -8px;
+    font-size: .9em;
+}
+.product-grid{
+    float: inherit;
+    margin: 0 auto;
+    background: #fff;
+    overflow: hidden;
+}
+
+.product-wrapper{
+	position: relative;
+}
+
+.product-name{
+	font-size: .8em;
+	margin-bottom: .5em;
+	text-transform: uppercase;
+	font-weight: bold;
+}
+
+.style-val{
+	text-transform: uppercase;
+}
+.product-style,
+.product-color{
+	color: #999;
+	font-size: .8em;
+	margin-bottom: .2em;
+	line-height: 2em;
+  text-transform: capitalize;
+}
+
+
+.quick-links a{
+	color: #999;
+	border-left: 1px solid #999;
+  padding: 0 10px;
+  font-size: 14px;
+}
+.quick-links a:first-child{
+	 border-left: none;
+   padding-left: 0px;
+}
+
+
+.help{
+	margin-bottom: 1em;
+	font-size: .9em;
+	color: #666;
+}
+
+/*
+* Landing Page [start]
+*/
+.product-grid ul{
+	list-style: none;
+}
+.product-details{
+	float: left;
+	margin-top: 10px;
+}
+/*
+* Landing Page [end]
+*/
+
+/*
+* Billing Section [start]
+*/
+.checkout-section{
+	font-size: .9em;
+}
+
+.billing-section{
+	background: #fff;
+    margin-bottom: 2em;
+    width: 90%;
+    margin: 0 auto;
+}
+.billing-section p{
+	margin-bottom: 1em;
+	font-size: .9em;
+	color: #999;
+}
+.billing-section p a{
+	text-decoration: underline;
+	color: #999;
+}
+.billing-section p a:hover{
+	text-decoration: none;
+}
+
+.promo-code-wrapper{
+	border-bottom: .7em solid #dedede;
+	padding-bottom: .8em;
+	margin-bottom: 2em;
+}
+.promo-msg{
+	line-height: 2em;
+}
+.promo-code{
+	width: 80%;
+	height: 3em;
+	line-height: 2em;
+	border: 1px solid #dedede;
+}
+
+.apply-btn{
+	border: 1px solid #dedede;
+	background: transparent;
+	padding: 1em;
+	font-size: .89em;
+  border-radius: 0;
+}
+.apply-btn:focus{
+	outline: 0;
+}
+
+.spacer{
+	margin: 1em 0;
+	float: left;
+    width: 100%;
+}
+
+.secondary-heading{
+	text-transform: uppercase;
+	color: #333;
+}
+.checkout-section sup{
+	font-size: .8em;
+	margin-right: .3em;
+}
+.msg{
+	font-size: .7em;
+	line-height: 1em;
+	color: #666;
+  text-transform: normal;
+}
+
+.estimated-shipping-wrapper{
+	padding-bottom: 2em;
+	border-bottom: .1em solid #dedede;
+
+}
+
+.btn-cart{
+  padding: 10px;
+	background: #71acd6;
+	color: #fff;
+	border: none;
+  margin-left: 10px;
+  min-width: 100px;
+}
+
+
+.estimated-total,
+.estimated-total-wrapper .totalPrice{
+	font-size: 1.5em;
+	line-height: 2em;
+	font-weight: bold;
+}
+
+.product-wrapper .product-image{
+  width: 150px;
+  height: 150px;
+}
+.product-wrapper .product-image img{
+  width: 100%;
+  height: 100%;
+}
+.product-wrapper .product-image img{
+  width: 100%;
+  height: 100%;
+}
+img.product-image:hover{
+ width: 155px;
+ height: 210px;
+ cursor: pointer;
+}
+.modalWindow-product-name{
+	font-size: 1.5em;
+	margin: .5em 0;
+	text-transform: uppercase;
+	font-weight: bold;
+  font-family: 'Arial', serif;
+	text-align: center;
+}
+.modalWindow-product-price{
+	font-size: 3em;
+  text-align: center;
+	position: relative;
+}
+.modalWindow-product-price .price{
+	margin-left: 10px;
+}
+.modalWindow-product-price .currency{
+	font-size: .5em;
+	position: absolute;
+  top: 0;
+	font-size: .4em;
+  font-family: 'Arial', serif;
+}
+
+.modalWindow-colors-available h6{
+	font-size: 1em;
+	margin: .5em 0;
+	text-align: center;
+    font-family: 'Arial', serif;
+}
+.modalWindow-colors-available .color-wrapper{
+	margin-bottom: 1em;
+}
+.modalWindow-product-details-link-wrapper{
+  margin-top: 10px;
+}
+.color-group.checkboxFive{
+    display: inline-block;
+}
+.color-box{
+	float: left;
+	width: 20px;
+	height: 20px;
+  border-radius: 14px;
+	margin-right: 5px;
+  margin-top: 3px;
+}
+.color-selected {
+  border: 1px solid brown;
+  height: 30px;
+  width: 30px;
+}
+.color-unselected {
+  border: none;
+  height: 20px;
+  width: 20px;
+}
+.color-row.glyphicon{
+	display: inline;
+	font-size: 11px;
+}
+
+.modalWindow_style{
+  font-family: 'Arial', serif;
+	float: left;
+	width: 100%;
+	margin-bottom: 10px;
+}
+.modalWindow-size{
+	float: left;
+	width: 90%;
+	padding-left: 10%;
+	margin-bottom: 5%;
+}
+.
+
+.modalWindow-addToBag-wrapper{
+	text-align: center;
+}
+.modalWindow-addToBag{
+	border: none;
+	padding: 1em;
+	background: #71acd6;
+	color: #fff;
+}
+
+.cart-size{
+	text-transform: capitalize;
+}
+
+#contentBox{
+  position: absolute;
+  top: 88px;
+  margin-top: -100px;
+  border: 2px solid #FFF;
+  background: #FFF;
+  z-index: 1002;
+  overflow: visible;
+  padding: 20px;
+}
+ 
+#shadeBox{
+	background: #666;
+	width: 100%;
+	height: 100%;
+	position: fixed;
+	top: 0;
+	left: 0;
+	-moz-opacity: 0.9;
+	opacity:.70;
+	filter: alpha(opacity=70);
+	z-index: 2;
+
+}
+
+#contentBox{
+	text-align: center;
+}
+
+#contentBox .close{
+	position: absolute;
+    top: -33px;
+    right: -2px;
+    background: #fff;
+    opacity: 1;
+    padding: 5px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+
+.data-container{
+	margin-bottom: 2em;
+}
+
+.primary-heading{
+    font-weight: 100;
+    color: #999;
+}
+.cart-size , .cart-qty , .cart-price{
+  text-transform: capitalize;
+}
+
+/*custom checkbox [end]*/
+@media(min-width:992px){
+  .text-right-lg{
+    text-align: right;
+  }
+
+}
+@media(max-width:991px){
+
+  .cart-size , .cart-qty , .cart-price{
+    margin-bottom: 15px;
+  }
+
+}
+@media(min-width:768px){
+  #contentBox{
+  	width: 70%;
+  	margin: 0 15%;
+  }
+  .primary-heading{
+      font-size: 45px;
+      margin-bottom: 50px;
+    }
+  .modalWindow-detail{
+  	padding: 16px;
+  	float: left;
+    width: 50%;
+  }
+  .quick-links{
+  	 margin-top: 40px;
+  }
+  .continue-shopping{
+    margin-top: 15px;
+    text-decoration: underline;
+  }
+  .lock-image{
+    margin-top: -5px;
+    margin-right: 10px;
+  }
+  .continue-shopping, .checkout-button{
+    float: right;
+    text-align: right;
+  }
+  .cart-price{
+  	position: relative;
+
+  }
+  .product-wrapper .product-image{
+  	float: left;
+  }
+
+  #modalWindow-template .product-image{
+    width: 50%;
+    float: right;
+  }
+  #modalWindow-template .product-image img{
+  height: 100%;
+  }
+  #contentBox img{
+  	float: right;
+  	width: 100%;
+  	max-width: 250px;
+  	margin: 1em 0 0 0;
+  }
+  .modalWindow-size select{
+    width: 48%;
+    margin: 1%;
+  }
+}
+
+@media(max-width:767px){
+  #contentBox{
+  	width: 90%;
+    margin: 0 5%;
+  }
+  .primary-heading{
+    border-bottom: .7em solid #dedede;
+    padding-bottom: 10px;
+  }
+  .apply-btn{
+    margin-top: 10px;
+  }
+  .continue-shopping, .checkout-button{
+    width: 100%;
+    text-align: center;
+    margin-bottom: 15px;
+  }
+
+  .modalWindow-size .qty{
+  	margin-top: 10px;
+  }
+}
+@media(max-width:560px){
+  .cart-row .product-image img{
+    width: 100px;
+    height: 150px;
+  }
+}
